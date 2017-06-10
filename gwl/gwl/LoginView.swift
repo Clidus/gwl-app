@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoginDelegate {
-    func didPressLoginButton(button:UIButton)
+    func didPressLoginButton(username: String, password: String)
 }
 
 class LoginView: UIView {
@@ -108,7 +108,7 @@ class LoginView: UIView {
         super.updateConstraints()
     }
     
-    func loginButtonPress(button:UIButton) {
-        delegate.didPressLoginButton(button: button)
+    func loginButtonPress(button: UIButton) {
+        delegate.didPressLoginButton(username: emailTextField.text!, password: passwordTextField.text!)
     }
 }

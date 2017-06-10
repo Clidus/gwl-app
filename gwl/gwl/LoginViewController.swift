@@ -28,16 +28,15 @@ class LoginViewController: UIViewController, LoginDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func login() {
+    func didPressLoginButton(username: String, password: String) {
+        let loginModel = LoginModel()
+        loginModel.login(username: username, password: password)
+        
         // remove self
-        appDelegate.navController.popViewController(animated: true)
+        //appDelegate.navController.popViewController(animated: true)
         
         // display navigation
-        appDelegate.navController.setNavigationBarHidden(false, animated: false)
-    }
-    
-    func didPressLoginButton(button:UIButton) {
-        login()
+        //appDelegate.navController.setNavigationBarHidden(false, animated: false)
     }
 }
 

@@ -27,7 +27,11 @@ class LoginModel {
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-                print(json["success"] as! Bool)
+                let success = json["success"] as! Bool
+                let token = json["token"] as! String
+                if(success && !token.isEmpty) {
+                    _ = self.saveStringToKeyChain(key: token, string: "Token")
+                }
             } catch let error as NSError {
                 print("Error:")
                 print(error)

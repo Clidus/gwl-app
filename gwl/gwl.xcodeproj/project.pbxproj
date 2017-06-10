@@ -15,6 +15,7 @@
 		038FCBD51ED1D8C80009C3AF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038FCBD41ED1D8C80009C3AF /* LoginView.swift */; };
 		03B9DB5F1EE33201009F6BDA /* gwl-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B9DB5E1EE33201009F6BDA /* gwl-logo.png */; };
 		03B9DB611EE338F0009F6BDA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9DB601EE338F0009F6BDA /* LoginModel.swift */; };
+		03D756A31EEC364B00763D1A /* KeyChainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D756A21EEC364B00763D1A /* KeyChainModel.swift */; };
 		7F519C5D8F208C7AAC7736A6 /* Pods_gwl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48FD3A847986CDD8277823C0 /* Pods_gwl.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		038FCBD41ED1D8C80009C3AF /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		03B9DB5E1EE33201009F6BDA /* gwl-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gwl-logo.png"; sourceTree = "<group>"; };
 		03B9DB601EE338F0009F6BDA /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		03D756A21EEC364B00763D1A /* KeyChainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainModel.swift; sourceTree = "<group>"; };
 		073CD8BCE1D0C6D0E3EFA242 /* Pods-gwl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gwl.release.xcconfig"; path = "Pods/Target Support Files/Pods-gwl/Pods-gwl.release.xcconfig"; sourceTree = "<group>"; };
 		48FD3A847986CDD8277823C0 /* Pods_gwl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gwl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D885021934BD7FC1FBDC0A /* Pods-gwl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gwl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gwl/Pods-gwl.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				03B9DB601EE338F0009F6BDA /* LoginModel.swift */,
+				03D756A21EEC364B00763D1A /* KeyChainModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				03B9DB611EE338F0009F6BDA /* LoginModel.swift in Sources */,
 				0362192A1ED1D31F00C1787D /* LoginViewController.swift in Sources */,
 				036219161ED1D28100C1787D /* AppDelegate.swift in Sources */,
+				03D756A31EEC364B00763D1A /* KeyChainModel.swift in Sources */,
 				038FCBD51ED1D8C80009C3AF /* LoginView.swift in Sources */,
 				036219281ED1D30C00C1787D /* HomeViewController.swift in Sources */,
 			);

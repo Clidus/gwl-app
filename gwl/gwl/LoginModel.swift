@@ -34,4 +34,24 @@ class LoginModel {
             }
         }).resume()
     }
+    
+    func saveStringToKeyChain(key: String, string: String) -> Bool {
+        // save password to keychain so we can retrieve it
+        // when session token expires to re-authenticate
+        let status = KeyChainModel.save(key: key, data: Data(from: string))
+        
+        if(status == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    func getStringFromKeyChain(key: String) -> String? {
+        if let receivedData = KeyChainModel.load(key: key) {
+            return receivedData.to(type: String.self)
+        }
+        
+        return nil;
+    }
 }

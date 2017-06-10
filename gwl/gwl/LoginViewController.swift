@@ -31,7 +31,7 @@ class LoginViewController: UIViewController, LoginDelegate {
     func didPressLoginButton(username: String, password: String) {
         let loginModel = LoginModel()
         
-        if(!savePasswordToKeyChain(password: password)) {
+        if(!loginModel.saveStringToKeyChain(key: "Password", string: password)) {
             print("Failed to save password to KeyChain")
         }
         
@@ -42,26 +42,6 @@ class LoginViewController: UIViewController, LoginDelegate {
         
         // display navigation
         //appDelegate.navController.setNavigationBarHidden(false, animated: false)
-    }
-    
-    func savePasswordToKeyChain(password: String) -> Bool {
-        // save password to keychain so we can retrieve it
-        // when session token expires to re-authenticate
-        let status = KeyChainModel.save(key: "Password", data: Data(from: password))
-        
-        if(status == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    func getPasswordFromKeyChain() -> String? {
-        if let receivedData = KeyChainModel.load(key: "Password") {
-            return receivedData.to(type: String.self)
-        }
-        
-        return nil;
     }
 }
 

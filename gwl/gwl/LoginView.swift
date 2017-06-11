@@ -12,7 +12,7 @@ protocol LoginDelegate {
     func didPressLoginButton(username: String, password: String)
 }
 
-class LoginView: UIView {
+class LoginView: UIView, UITextFieldDelegate {
     var delegate:LoginDelegate!
     
     var shouldSetupConstraints = true
@@ -42,6 +42,8 @@ class LoginView: UIView {
         emailTextField.autocorrectionType = UITextAutocorrectionType.no
         emailTextField.clearButtonMode = UITextFieldViewMode.whileEditing
         emailTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+        emailTextField.returnKeyType = .done
+        emailTextField.delegate = self
         self.addSubview(emailTextField)
         
         // password
@@ -55,6 +57,8 @@ class LoginView: UIView {
         passwordTextField.clearButtonMode = UITextFieldViewMode.whileEditing
         passwordTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.returnKeyType = .done
+        passwordTextField.delegate = self
         self.addSubview(passwordTextField)
         
         // button
@@ -110,5 +114,9 @@ class LoginView: UIView {
     
     func loginButtonPress(button: UIButton) {
         delegate.didPressLoginButton(username: emailTextField.text!, password: passwordTextField.text!)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
     }
 }

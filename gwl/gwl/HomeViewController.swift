@@ -10,7 +10,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let loggedIn: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +25,8 @@ class HomeViewController: UIViewController {
     
     func checkLogin() {
         // check if logged in
-        if(loggedIn == false) {
+        let loginModel = LoginModel()
+        if(!loginModel.isLoggedIn()) {
             let loginViewController = LoginViewController()
             
             // hide navigation

@@ -35,13 +35,21 @@ class LoginViewController: UIViewController, LoginDelegate {
             print("Failed to save password to KeyChain")
         }
         
-        loginModel.login(username: username, password: password)
-        
-        // remove self
-        //appDelegate.navController.popViewController(animated: true)
-        
-        // display navigation
-        //appDelegate.navController.setNavigationBarHidden(false, animated: false)
+        loginModel.login(username: username, password: password) { (error) in
+            DispatchQueue.main.async {
+                if(error == nil) {
+                    // remove self
+                    self.appDelegate.navController.popViewController(animated: true)
+                    
+                    // display navigation
+                    self.appDelegate.navController.setNavigationBarHidden(false, animated: false)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
 }
 

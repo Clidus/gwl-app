@@ -12,7 +12,7 @@ class LoginModel {
     // TODO: relocate this
     var domain: String = "http://www.gwl.com"
     
-    func login(username: String, password: String) {
+    func login(username: String, password: String, completion: @escaping (Error?) -> Void) {
         let url = URL(string: domain + "/api/login")
         let jsonDict = ["username": username, "password": password]
         let jsonData = try! JSONSerialization.data(withJSONObject: jsonDict, options: [])
@@ -31,12 +31,19 @@ class LoginModel {
                 let token = json["token"] as! String
                 if(success && !token.isEmpty) {
                     _ = self.saveStringToKeyChain(key: token, string: "Token")
+                    
+                    completion(nil)
+                } else {
+                    completion(NSError(domain: "Error", code: 0, userInfo: [NSLocalizedDescriptionKey: "Sorry duder, that seems to be the wrong username or password. Please try again."]))
                 }
             } catch let error as NSError {
-                print("Error:")
-                print(error)
+                completion(error)
             }
         }).resume()
+    }
+    
+    func isLoggedIn() -> Bool {
+        return self.getStringFromKeyChain(key: "Token") != nil
     }
     
     func saveStringToKeyChain(key: String, string: String) -> Bool {
